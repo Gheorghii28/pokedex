@@ -21,11 +21,23 @@ body {
     background-color: #333844;
 }
 
+#app-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 10px;
+    gap: 10px;
+}
+
 #container-with-pokemons {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     padding: 20px;
+    width: 100%;
+    justify-content: center;
 }
 
 .pokemon-card {
@@ -412,4 +424,40 @@ body {
     55% {
         transform: rotateZ(-3deg) rotateX(-12deg) rotateY(-27deg);
     }
+}
+
+#header {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+#header img {
+    width: 250px;
+    object-fit: contain;
+}
+
+
+
+
+
+#btn-load-next-pokemons {
+    background-image: url('../img/pokemon-btn.png');
+    background-size: cover;
+    background-position: center;
+    width: 100px;
+    height: 50px;
+    cursor: pointer;
+    border-radius: 14px;
+    transition: transform 0.2s;
+}
+
+#btn-load-next-pokemons:hover {
+    transform: scale(1.1);
+}
+
+#btn-load-next-pokemons:active {
+    transform: scale(0.9);
+    transition: transform 0.2s;
 }
