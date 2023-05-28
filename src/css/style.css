@@ -1,0 +1,200 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* background-color: #1A1A1A; */
+    background-color: #2C2C2C;
+}
+
+/* #1A1A1A: Ein dunkles, sattes Schwarz
+#212121: Ein tiefes Dunkelgrau
+#2C2C2C: Ein dunkles Anthrazitgrau
+#333333: Ein dunkles Grau
+#191919: Ein tiefes Dunkelgrau mit einem Hauch von Braun */
+
+#container-with-pokemons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    /* pointer-events: auto; */
+}
+
+.pokemon-card {
+    background-color: #191919;
+    padding: 0px 5px 5px 5px;
+    width: 240px;
+    height: 336px;
+    border: 2px solid;
+    border-radius: 10px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    flex-direction: column;
+    cursor: pointer;
+    transition: transform 0.3s;
+    /* pointer-events: auto;
+    z-index: 999; */
+}
+
+.pokemon-card:hover {
+    transform: scale(1.02);
+}
+
+.pokemon-card>img {
+    height: 200px;
+    max-width: 200px;
+    position: absolute;
+    top: 20px;
+}
+
+.card-details {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    height: 110px;
+    padding: 0 10px 10px 10px;
+}
+
+.card-headline {
+    text-align: center;
+}
+
+.card-id {
+    position: relative;
+}
+
+.card-id>span {
+    position: absolute;
+    top: -13px;
+    right: -13px;
+    /* background-color: blue; */
+    font-weight: 600;
+    padding: 5px;
+    border-radius: 50%;
+}
+
+.type-symbol-img {
+    width: 50px;
+}
+
+.pokemon-info {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.class-type {
+    display: flex;
+}
+
+.pokemon-height,
+.class-weight {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.border-black {
+    border-color: black;
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); */
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+    /* box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2); */
+}
+
+.color-black {
+    background-color: black;
+}
+
+.border-blue {
+    border-color: rgb(0, 0, 255);
+    box-shadow: 0 0 8px rgba(0, 0, 255, 0.5);
+}
+
+.color-blue {
+    background-color: rgb(0, 0, 255);
+}
+
+
+.border-brown {
+    border-color: rgb(139, 69, 19);
+    box-shadow: 0 0 8px rgba(139, 69, 19, 0.5);
+}
+
+.color-brown {
+    background-color: rgb(139, 69, 19);
+}
+
+.border-gray {
+    border-color: rgb(128, 128, 128);
+    box-shadow: 0 0 8px rgba(128, 128, 128, 0.5);
+}
+
+.color-gray {
+    background-color: rgb(128, 128, 128);
+}
+
+.border-green {
+    border-color: rgb(34, 139, 34);
+    box-shadow: 0 0 8px rgba(34, 139, 34, 0.5);
+}
+
+.color-green {
+    background-color: rgb(34, 139, 34);
+}
+
+.border-pink {
+    border-color: rgb(255, 105, 180);
+    box-shadow: 0 0 8px rgba(255, 105, 180, 0.5);
+}
+
+.color-pink {
+    background-color: rgb(255, 105, 180);
+}
+
+.border-purple {
+    border-color: rgb(155, 89, 182);
+    box-shadow: 0 0 8px rgba(155, 89, 182, 0.5);
+}
+
+.color-purple {
+    background-color: rgb(155, 89, 182);
+}
+
+.border-red {
+    border-color: rgb(255, 0, 0);
+    box-shadow: 0 0 8px rgba(255, 0, 0, 0.5);
+}
+
+.color-red {
+    background-color: rgb(255, 0, 0);
+}
+
+.border-white {
+    border-color: rgb(255, 255, 255);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+.color-white {
+    background-color: rgb(255, 255, 255);
+    color: black;
+}
+
+
+.border-yellow {
+    border-color: rgb(255, 255, 0);
+    box-shadow: 0 0 8px rgba(255, 255, 0, 0.5);
+}
+
+.color-yellow {
+    background-color: rgb(255, 255, 0);
+    color: black;
+}
