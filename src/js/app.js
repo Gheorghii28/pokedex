@@ -44,6 +44,7 @@ async function showPokemons(res) {
         const speciesColor = speciesData[`color`][`name`];
         addPokemonCard(id, pokemonsContainer, pokemonData, speciesColor);
     }
+    animationHoloEfect();
 }
 
 function addPokemonCard(id, pokemonsContainer, pokemonData, speciesColor) {
@@ -65,7 +66,7 @@ function generatePokemonCardsTemplate(pokemonData, id) {
     const weight = pokemonData[`weight`];
     const imgURL = pokemonData[`sprites`][`other`][`dream_world`][`front_default`];
     return `
-    <div id="pokemon-${id}" onclick="openPokemonCard(${id})" class="pokemon-card">
+    <div id="pokemon-${id}" onclick="openPokemonCard(${id})" class="pokemon-card card">
         <div>
             <div class="card-id">
                 <span id="id-nr-${id}">#${id}</span>
@@ -91,7 +92,7 @@ function generatePokemonCardsTemplate(pokemonData, id) {
 }
 
 function openPokemonCard(id) {
-    console.log(id, "test");
+    console.log(id, "test-open pokemon");
 }
 
 function includePokemonTypeSymbol(pokemonData, id) {
@@ -106,4 +107,25 @@ function includePokemonTypeSymbol(pokemonData, id) {
 function setColor(speciesColor, id) {
     document.getElementById(`pokemon-${id}`).classList.add(`border-${speciesColor}`);
     document.getElementById(`id-nr-${id}`).classList.add(`color-${speciesColor}`);
+}
+
+function animationHoloEfect() {
+    const cards = document.querySelectorAll(".card");
+    cards.forEach((card) => {
+        card.addEventListener("mouseover", handleMouseOver);
+        card.addEventListener("mouseout", handleMouseOut);
+    });
+}
+
+function handleMouseOver(e) {
+    const card = this;
+    card.classList.add("animated");
+}
+
+function handleMouseOut(e) {
+    const card = this;
+    card.classList.remove("animated");
+    setTimeout(() => {
+        card.classList.add("animated");
+    }, 1000);
 }
