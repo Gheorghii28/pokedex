@@ -15,16 +15,64 @@
     <title>Pokedex</title>
     <link rel="stylesheet" href="./src/css/style.css">
     <link rel="stylesheet" href="./src/css/fonts.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
-    <div id="app-container">
+    <div id="app-container" class="">
         <header id="header">
             <img src="./src/img/pokemon-logo.png" alt="">
         </header>
+        <input class="search-input-icon" type="text" id="search-input" placeholder="">
         <div id="container-with-pokemons"></div>
+        <div id="loading-container">
+            <div class="loading-text" class="d-none">Loading...</div>
+        </div>
         <button id="btn-load-next-pokemons"></button>
     </div>
+    <div id="slideshow-container" class="d-none">
+        <div id="back">
+            <button id="back-btn" class="pokemon-btn">back</button>
+        </div>
+        <div id="pokemon-area">
+            <div id="pokemon-screen">
+                <div id="top-area">
+                    <div id="top-left-area">
+                        <button id="btn-abilities">abilitties</button>
+                        <button id="btn-moves">moves</button>
+                    </div>
+                    <div id="top-right-area">
+                        <div>
+                            <canvas id="my-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div id="bottom-area">
+                    <div id="bottom-left-area">
+                        <div id="info-1">
+                            <span id="info-1-id"></span>
+                            <span id="info-1-exp"></span>
+                        </div>
+                        <div id="info-2">
+                            <span id="info-2-weight"></span>
+                            <span id="info-2-height"></span>
+                        </div>
+                        <h2 id="pokemon-name"></h2>
+                    </div>
+                    <div id="bottom-right-area">
+                    </div>
+                </div>
+                <img id="pokemon-img" src="" alt="">
+                <img id="close" src="./src/img/close.png" alt="">
+            </div>
+            <div id="all-abilities" class="d-none"></div>
+            <div id="all-moves" class="hidden d-none"></div>
+        </div>
+        <div id="next">
+            <button id="next-btn" class="pokemon-btn">next</button>
+        </div>
+    </div>
+    <script src="./src/js/data.js"></script>
     <script src="./src/js/app.js"></script>
 </body>
 
