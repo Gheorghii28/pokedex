@@ -1,17 +1,23 @@
 const urlPokemon = `https://pokeapi.co/api/v2/pokemon`;
 const pokemonsContainer = document.getElementById("container-with-pokemons");
 const searchInput = document.getElementById('search-input');
+const pokemonNameList = [];
+let isLoading = false;
 let indexPkemon;
 let urlNextPokemon = "";
 pokemonsContainer.innerHTML = "";
-const pokemonNameList = [];
+
 
 init();
 
 async function init() {
     showLoading();
     await loadPokemons(urlPokemon);
-    document.getElementById("btn-load-next-pokemons").addEventListener("click", () => { loadPokemons(urlNextPokemon) });
+    document.getElementById("btn-load-next-pokemons").addEventListener("click", () => {
+        if (!isLoading) {
+            loadPokemons(urlNextPokemon);
+        }
+    });
     closeSlideShowEvent();
     btnNextPokemonEvent();
     btnAbilitiesEvent();
@@ -19,8 +25,10 @@ async function init() {
 }
 
 async function loadPokemons(url) {
+    isLoading = true;
     const responseAsJSON = await fetchDataFromAPI(url);
-    showPokemons(responseAsJSON);
+    await showPokemons(responseAsJSON);
+    isLoading = false;
 }
 
 async function fetchDataFromAPI(url) {
@@ -380,7 +388,7 @@ searchInput.addEventListener('blur', () => {
 
 searchInput.addEventListener("click", () => {
     const allPokemonsCard = document.querySelectorAll(".pokemon-card");
-    for(let i = 0; i < allPokemonsCard.length; i++) {
+    for (let i = 0; i < allPokemonsCard.length; i++) {
         allPokemonsCard[i].classList.remove("d-none");
     }
 });
