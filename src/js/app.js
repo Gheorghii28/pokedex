@@ -5,7 +5,7 @@ const pokemonNameList = [];
 let isLoading = false;
 let indexPkemon;
 let urlNextPokemon = "";
-pokemonsContainer.innerHTML = "";
+pokemonsContainer.innerHTML = '<span id="not-pokemon" class="d-none"></span>';
 
 
 init();
@@ -331,13 +331,13 @@ function filterPokemons(searchTerm) {
     const filteredPokemons = pokemonNameList.filter((pokemon) =>
         pokemon.toLowerCase().includes(searchTerm.toLowerCase())
     );
-    displayResults(filteredPokemons);
+    displayResults(filteredPokemons, searchTerm);
 };
 
-function displayResults(results) {
+function displayResults(results, searchTerm) {
     const matchingIds = findMatchingIds(results);
     hideAllPokemons();
-    showMatchingPokemons(matchingIds);
+    showMatchingPokemons(matchingIds, searchTerm);
 }
 
 function findMatchingIds(results) {
@@ -357,10 +357,15 @@ function hideAllPokemons() {
     });
 }
 
-function showMatchingPokemons(matchingIds) {
+function showMatchingPokemons(matchingIds, searchTerm) {
     const allPokemonsCard = document.querySelectorAll(".pokemon-card");
-    if (matchingIds.length === 0) {
+    const notPokemon = document.getElementById('not-pokemon');
+    if (matchingIds.length == 0) {
+        notPokemon.classList.remove('d-none');
+        notPokemon.innerHTML = `Unfortunately, there is no Pokémon with the name: <span style="color: white;">${searchTerm}</span>` ;
         return;
+    } else {
+        notPokemon.classList.add('d-none');   
     }
     matchingIds.forEach((id) => {
         allPokemonsCard[id].classList.remove("d-none");
